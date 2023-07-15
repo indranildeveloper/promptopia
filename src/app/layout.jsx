@@ -1,17 +1,27 @@
-import { Inter } from "next/font/google";
-import "../styles/global.css";
-
-const inter = Inter({ subsets: ["latin"] });
+import Nav from "@/components/Nav";
+import Provider from "@/components/Provider";
+import "@/styles/global.css";
 
 export const metadata = {
   title: "Promptopia",
-  description: "AI Prompt generation social media.",
+  description: "Discover and Share AI Prompts.",
 };
 
-export default function RootLayout({ children }) {
+const RootLayout = ({ children }) => {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body>
+        <div className="main">
+          <div className="gradient" />
+        </div>
+
+        <main className="app">
+          <Nav />
+          {children}
+        </main>
+      </body>
     </html>
   );
-}
+};
+
+export default RootLayout;
